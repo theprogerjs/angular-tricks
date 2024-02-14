@@ -17,6 +17,7 @@
                                 id="number"
                                 formControlName="number"
                                 class="form-control"
+                                autocomplete="off"
                                 (keypress)="validateNumberInput($event, 16)"
                                 [class.is-invalid]="card.get('number')?.invalid && card.get('number')?.touched"
                                 >
@@ -33,6 +34,7 @@
                                 type="text"
                                 id="holder"
                                 formControlName="holder"
+                                autocomplete="off"
                                 class="form-control"
                                 [class.is-invalid]="card.get('holder')?.invalid && card.get('holder')?.touched"
                                 >
@@ -50,6 +52,7 @@
                                 class="form-control" 
                                 placeholder="MM / YY"
                                 formControlName="exp"
+                                autocomplete="off"
                                 (keypress)="validateNumberInput($event)"
                                 (input)="validateExpirationField($event)"
                                 [class.is-invalid]="card.get('exp')?.invalid && card.get('exp')?.touched">
@@ -67,6 +70,7 @@
                                 id="cvv"
                                 class="form-control" 
                                 formControlName="cvv"
+                                autocomplete="off"
                                 [class.is-invalid]="card.get('cvv')?.invalid && card.get('cvv')?.touched"
                                 (keypress)="validateNumberInput($event, 3)"
                                 (focus)="view = 2"

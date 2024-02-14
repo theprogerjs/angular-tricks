@@ -1,0 +1,38 @@
+.payment-wrapper {
+    min-height: 100vh;
+}
+
+
+.payment-area {
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+    padding: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background: #fff;
+    margin-top: 133px;
+
+    &-top {
+        height: 100px;
+        position: relative;
+    }
+
+    &-form {
+        --bs-border-radius: 0;
+        --bs-border-radius-lg: 0;
+        --bs-btn-font-size: 0.875rem;
+        .form-label {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+.tp-credit-card {
+    position: absolute;
+    width: 100%;
+    max-width: 372px;
+    top: calc(-100% - 65px);
+    left: 50%;
+    transform: translateX(-50%);
+}

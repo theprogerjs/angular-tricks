@@ -1,0 +1,89 @@
+<div class="payment-wrapper d-flex justify-content-center align-items-center">
+    <div class="container  d-flex justify-content-center align-items-center">
+        <div class="payment-area">
+            <div class="payment-area-top">
+                <tp-credit-card
+                class="tp-credit-card"
+                [details]="card.value"
+                [view]="view"></tp-credit-card>
+            </div>
+            <div class="payment-area-bottom">
+                <form class="payment-area-form" [formGroup]="card">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="number" class="form-label">Card Number</label>
+                            <input 
+                                type="text"
+                                id="number"
+                                formControlName="number"
+                                class="form-control"
+                                (keypress)="validateNumberInput($event, 16)"
+                                [class.is-invalid]="card.get('number')?.invalid && card.get('number')?.touched"
+                                >
+                            @if(card.get('number')?.invalid && card.get('number')?.touched){
+                                <div class="invalid-feedback">
+                                    Field is required
+                                </div>
+                            }
+                            
+                        </div>
+                        <div class="col-md-12">
+                            <label for="holder" class="form-label">Card Holder</label>
+                            <input 
+                                type="text"
+                                id="holder"
+                                formControlName="holder"
+                                class="form-control"
+                                [class.is-invalid]="card.get('holder')?.invalid && card.get('holder')?.touched"
+                                >
+                            @if(card.get('holder')?.invalid && card.get('holder')?.touched){
+                                <div class="invalid-feedback">
+                                    Field is required
+                                </div>
+                            }
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <label id="exp" for="month" class="form-label">Expiration Date</label>
+                            <input 
+                                type="text"
+                                class="form-control" 
+                                placeholder="MM / YY"
+                                formControlName="exp"
+                                (keypress)="validateNumberInput($event)"
+                                (input)="validateExpirationField($event)"
+                                [class.is-invalid]="card.get('exp')?.invalid && card.get('exp')?.touched">
+                            @if(card.get('exp')?.invalid && card.get('exp')?.touched){
+                                <div class="invalid-feedback">
+                                    Field is required
+                                </div>
+                            }  
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input 
+                                type="text"
+                                id="cvv"
+                                class="form-control" 
+                                formControlName="cvv"
+                                [class.is-invalid]="card.get('cvv')?.invalid && card.get('cvv')?.touched"
+                                (keypress)="validateNumberInput($event, 3)"
+                                (focus)="view = 2"
+                                (focusout)="view = 1"
+                                >
+                            @if(card.get('cvv')?.invalid && card.get('cvv')?.touched){
+                                <div class="invalid-feedback">
+                                    Field is required
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary w-100 my-3">Pay</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="todo-item">
+    <div class="todo-item-left">
+        <tp-checkbox [isChecked]="todo.done" (onStatusChange)="checkStatus($event)"></tp-checkbox>
+        <span class="todo-content">{{ todo.description }}</span>
+    </div>
+    <div class="todo-item-right">
+        <button type="button" class="todo-item-remove-btn" (click)="removeItem()">
+            <i class="bi bi-trash3-fill"></i>
+        </button>
+    </div>
+</div>

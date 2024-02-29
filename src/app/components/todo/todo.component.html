@@ -1,0 +1,22 @@
+<div class="todo-wrapper">
+    <div class="todo-card">
+        <div class="todo-card-header">
+            <h1>ToDo List</h1>
+            <i class="bi bi-card-checklist"></i>
+        </div>
+        <div class="todo-card-form">
+            <div class="todo-card-form-group">
+                <input (keyup.enter)="addToDo(todofield.value); todofield.value = ''" type="text" class="todo-card-form-control" placeholder="Add your task" #todofield>
+                <button (click)="addToDo(todofield.value); todofield.value = ''" type="button" class="todo-card-form-button">ADD</button>
+            </div>
+        </div>
+        <div class="todo-card-items">
+           <tp-todo-item *ngFor="let item of todos" [todo]="item" (onItemDelete)="onRemove($event)"></tp-todo-item>
+           <p class="todo-card-not-item" *ngIf="!todos.length">No items</p>
+        </div>
+        <div class="todo-card-footer">
+            {{completedTasksCount}} of {{todos.length}} tasks completed
+            
+        </div>
+    </div>
+</div>

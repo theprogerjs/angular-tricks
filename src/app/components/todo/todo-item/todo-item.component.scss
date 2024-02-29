@@ -1,0 +1,33 @@
+.todo-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dedede;
+    padding: 0.7rem 0rem;
+    &-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 8px;
+    }
+
+    &-remove-btn {
+        background: transparent;
+        border: none;
+        color: #e82341;
+        font-size: 0.75rem;
+        border-radius: 50%;
+        background-color: transparent;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .2s ease-in-out;
+        &:hover {
+            background-color: rgba(232, 35, 65,0.2);
+        }
+    }
+}
